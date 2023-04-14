@@ -217,12 +217,12 @@ class SubmissionMonitoringTask(BaseTask):
                 # Check if we need to reply to the submission
                 elif subreddit_cfg.unflaired_post_action == ActionUnflaired.REPLY:
                     # If general replies are enabled, the flair-up message will be included with that message
-                    unflaired_reply_text = random.choice(subreddit_cfg.unflaired_post_message)
+                    unflaired_reply_text = get_message(random.choice(subreddit_cfg.unflaired_post_message),
+                                                       submission=submission,
+                                                       author=submission.author,
+                                                       subreddit=subreddit)
                     if not subreddit_cfg.reply_on_posts:
-                        await self.try_reply(submission, get_message(unflaired_reply_text,
-                                                                     submission=submission,
-                                                                     author=submission.author,
-                                                                     subreddit=subreddit))
+                        await self.try_reply(submission, unflaired_reply_text)
                 else:
                     logger.warning(f"Unknown action {subreddit_cfg.unflaired_post_action} for unflaired posts")
 
