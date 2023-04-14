@@ -1,0 +1,19 @@
+{
+    "reddit": {
+        "client_id": "CLIENT-ID",
+        "client_secret": "CLIENT-SECRET",
+        "username": "USERNAME",
+        "password": "PASSWORD",
+        "user_agent": "BOT-USERNAME by /u/BCYDT"
+    },
+    "database": {
+        "url": "sqlite+aiosqlite:////data/kebabmeister.db"
+    },
+    "monitored_subreddits": [
+        "balkans_irl"
+    ],
+    "subreddit_config": {
+        "page_name": "kebabmeister",
+        "update_interval": 60
+    }
+}
